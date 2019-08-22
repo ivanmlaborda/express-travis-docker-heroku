@@ -1,0 +1,20 @@
+sudo: required
+language: node_js
+node_js:
+  - 10.14.2
+services:
+  - docker
+before_install:
+  - docker login docker.pkg.github.com -u $REGISTRY_USERNAME -p $REGISTRY_PASSWORD
+install:
+  # install deps
+  - npm install
+script:
+  # build docker images
+  - docker build -t ivanmlaborda/express-travis-docker-heroku .
+deploy:
+  provider: script
+  script:
+    # push to dockerhub
+    docker push ivanmlaborda/express-travis-docker-heroku;
+  branch: master
