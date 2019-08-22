@@ -11,7 +11,7 @@ install:
   - npm install
 script:
   # build docker images
-  - docker build -t ivanmlaborda/express-travis-docker-heroku .
+  - docker build -t ivanmlaborda/pkg-express-travis-docker-heroku .
 deploy:
   provider: script
   script:
