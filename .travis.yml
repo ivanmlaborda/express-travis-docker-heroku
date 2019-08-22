@@ -11,11 +11,11 @@ install:
   - npm install
 script:
   # build docker images
-  - docker build -t ivanmlaborda/pkg-express-travis-docker-heroku .
+  - docker build -t docker.pkg.github.com/ivanmlaborda/express-travis-docker-heroku/pkg-express-travis-docker-heroku:latest .
 deploy:
   provider: script
   script:
     # push to dockerhub
     git add .;
-    docker push docker.pkg.github.com/ivanmlaborda/express-travis-docker-heroku/pkg-express-travis-docker-heroku:1.0.0;
+    docker push docker.pkg.github.com/ivanmlaborda/express-travis-docker-heroku/pkg-express-travis-docker-heroku:latest;
   branch: master
