@@ -6,7 +6,7 @@ services:
   - docker
 before_install:
   # login to heroku registries
-  - docker login --username="$DOCKER_USERNAME" --password="$DOCKER_PASSWORD" registry.heroku.com
+  - docker login --username="$HEROKU_USERNAME" --password="$HEROKU_PASSWORD" registry.heroku.com
 install:
   # install deps
   - npm install
