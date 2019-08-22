@@ -16,5 +16,6 @@ deploy:
   provider: script
   script:
     # push to dockerhub
-    docker push docker.pkg.github.com/ivanmlaborda/express-travis-docker-heroku/pkg-express-travis-docker-heroku:1.0.0
+    git add .;
+    docker push docker.pkg.github.com/ivanmlaborda/express-travis-docker-heroku/pkg-express-travis-docker-heroku:1.0.0;
   branch: master
