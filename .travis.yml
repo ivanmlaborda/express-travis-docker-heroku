@@ -5,17 +5,16 @@ node_js:
 services:
   - docker
 before_install:
-  - docker login docker.pkg.github.com -u $REGISTRY_USERNAME -p $REGISTRY_PASSWORD
+  - docker login $REGISTRY_LOGIN_URL -u $REGISTRY_USERNAME -p $REGISTRY_PASSWORD
 install:
   # install deps
   - npm install
 script:
   # build docker images
-  - docker build -t docker.pkg.github.com/ivanmlaborda/express-travis-docker-heroku/pkg-express-travis-docker-heroku:latest .
+  - docker build -t pkg-express-travis-docker-heroku:latest .
 deploy:
   provider: script
   script:
-    # push to dockerhub
-    git add .;
-    docker push docker.pkg.github.com/ivanmlaborda/express-travis-docker-heroku/pkg-express-travis-docker-heroku:latest;
+    # push to registry
+    docker push pkg-express-travis-docker-heroku:latest;
   branch: master
