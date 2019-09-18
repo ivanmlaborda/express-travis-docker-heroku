@@ -11,10 +11,10 @@ install:
   - npm install
 script:
   # build docker images
-  - docker build -t pkg-express-travis-docker-heroku:latest .
+  - docker build -t $REGISTRY_LOGIN_URL/pkg-express-travis-docker-heroku:latest .
 deploy:
   provider: script
   script:
     # push to registry
-    docker push pkg-express-travis-docker-heroku:latest;
+    docker push $REGISTRY_LOGIN_URL/pkg-express-travis-docker-heroku:latest;
   branch: master
