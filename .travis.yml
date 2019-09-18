@@ -11,10 +11,10 @@ install:
   - npm install
 script:
   # build docker images
-  - docker build -t $REGISTRY_LOGIN_URL/$REGISTRY_USERNAME/$REGISTRY_REPOSITORY_NAME/:latest .
+  - docker build -t $REGISTRY_LOGIN_URL/$REGISTRY_USERNAME/$REGISTRY_REPOSITORY_NAME:latest .
 deploy:
   provider: script
   script:
     # push to registry
-    docker push $REGISTRY_LOGIN_URL/$REGISTRY_USERNAME/$REGISTRY_REPOSITORY_NAME/:latest;
+    docker push $REGISTRY_LOGIN_URL/$REGISTRY_USERNAME/$REGISTRY_REPOSITORY_NAME:latest;
   branch: master
