@@ -5,16 +5,16 @@ node_js:
 services:
   - docker
 before_install:
-  - docker login $REGISTRY_LOGIN_URL -u $REGISTRY_USERNAME -p $REGISTRY_PASSWORD
+  - docker login $REGISTRY_URL -u $REGISTRY_USERNAME -p $REGISTRY_PASSWORD
 install:
   # install deps
   - npm install
 script:
   # build docker images
-  - docker build -t $REGISTRY_LOGIN_URL/$REGISTRY_USERNAME/$REGISTRY_REPOSITORY_NAME:latest .
+  - docker build -t $REGISTRY_URL/$REGISTRY_USERNAME/$REGISTRY_REPOSITORY_NAME .
 deploy:
   provider: script
   script:
     # push to registry
-    docker push $REGISTRY_LOGIN_URL/$REGISTRY_USERNAME/$REGISTRY_REPOSITORY_NAME;
+    docker push $REGISTRY_URL/$REGISTRY_USERNAME/$REGISTRY_REPOSITORY_NAME;
   branch: master
