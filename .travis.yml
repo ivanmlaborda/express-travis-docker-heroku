@@ -16,5 +16,5 @@ deploy:
   provider: script
   script:
     # push to registry
-    docker push $REGISTRY_LOGIN_URL/$REGISTRY_USERNAME/$REGISTRY_REPOSITORY_NAME:latest;
+    docker push $REGISTRY_LOGIN_URL/$REGISTRY_USERNAME/$REGISTRY_REPOSITORY_NAME;
   branch: master
