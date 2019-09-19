@@ -8,7 +8,7 @@ before_install:
   - docker login $REGISTRY_URL -u $REGISTRY_USERNAME -p $REGISTRY_PASSWORD
   # install heroku CLI
   - wget -qO- https://toolbelt.heroku.com/install.sh | sh
-  - echo "$HEROKU_PASSWORD" | docker login -u "$HEROKU_USERNAME" --password-stdin registry.heroku.com
+  - docker login registry.heroku.com -u $HEROKU_USERNAME -p $HEROKU_PASSWORD
 install:
   # install deps
   - npm install
